@@ -1,12 +1,14 @@
 package com.mysite.domain.question.entity;
 
 import com.mysite.domain.answer.entity.Answer;
+import com.mysite.domain.user.dto.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,7 +26,14 @@ public class Question {
     private String content;
 
     private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     private List<Answer> answerList;
+
+    @ManyToMany
+    Set<SiteUser> voter;
+
+    @ManyToOne
+    private SiteUser author;
 }

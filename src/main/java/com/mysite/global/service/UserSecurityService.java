@@ -1,4 +1,4 @@
-package com.mysite.global;
+package com.mysite.global.service;
 
 import com.mysite.domain.user.constans.UserRole;
 import com.mysite.domain.user.dto.SiteUser;
